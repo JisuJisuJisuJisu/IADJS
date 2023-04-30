@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>input</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="button-wrapper">
+  <ion-button id="camera"><ion-icon name="camera-outline"></ion-icon>Camera</ion-button>
+</div>
+  <ion-item>
+    <ion-select label="Setting" placeholder="Public Setting">
+      <ion-select-option value="">Public</ion-select-option>
+      <ion-select-option value="nes">Private</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="location" label="Location" placeholder="Location"></ion-input>
+
+    <ion-input [(ngModel)]="hashtag" label="#Hashtag" placeholder="#Hashtag"></ion-input>
+  </ion-item>
+  <ion-item><ion-input [(ngModel)]="place" label="Place" placeholder="Place"></ion-input></ion-item>
+  <ion-item><ion-input [(ngModel)]="journey" label="Tell me about your journey" label-placement="floating" fill="outline" color="danger" placeholder="Enter text"></ion-input></ion-item>
+  <!-- <ion-datetime></ion-datetime> -->
+
+  <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+  <ion-button expand="block" color="danger" (click)="submit()">Make My Path</ion-button>
+  <ion-button expand="block" color="primary" (click)="save()">Save</ion-button>
+</ion-content>
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime (ionChange)="datetimeChange($event)" id="datetime"></ion-datetime>
+  </ng-template>
+</ion-modal>

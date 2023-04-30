@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { ExploreContainerComponentModule } from '../pages/explore-container/explore-container.module';
 
 import { Tab2Page } from './tab2.page';
 
@@ -20,7 +20,13 @@ describe('Tab2Page', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('컴포넌트 생성 확인', () => {
     expect(component).toBeTruthy();
   });
+
+  it('컴포넌트 안에 getPlaceList 동작 확인', async () => {
+    const placeList = await component.getPlaceList()
+    expect(Array.isArray(placeList)).toBeTruthy();
+  });
+
 });
